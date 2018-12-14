@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Date;
@@ -96,5 +97,12 @@ public class PeticionesControlador {
     public String logout(Model model, HttpServletRequest request){
         request.getSession().removeAttribute("usuario");
         return goHome(model, request);
+    }
+
+    @GetMapping(value = "/search/{nombre}")
+    public String search(@RequestParam String nombre, Model model){
+        Pelicula pelicula = peliculaService.getPelicula(nombre);
+        model.addAttribute("pelicula", pelicula);
+        return "search";
     }
 }
