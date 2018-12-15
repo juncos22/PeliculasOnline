@@ -8,12 +8,12 @@
 <div th:replace="master :: div"></div>
 
 <div class="container" th:if="${pelicula}">
-    <div class="card text-white bg-secondary mb-3" style="max-width: 20rem;">
+    <div class="card text-white bg-secondary mb-3 mt-5" style="max-width: 550px;">
         <div class="card-header" th:text="${pelicula.getGenero()}"></div>
         <div class="card-body">
             <img th:src="${pelicula.getPortada()}"
                  class="img-rounded"
-                 alt="portada">
+                 alt="portada" width="500" height="600">
             <h4 class="card-title" th:text="${pelicula.getNombre()}"></h4>
             <p class="card-text" th:text="${pelicula.getFecha()}"></p>
         </div>

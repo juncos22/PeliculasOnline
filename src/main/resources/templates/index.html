@@ -35,7 +35,8 @@
                              alt="portada" width="300" height="300">
                         <h4 class="card-title" th:text="${pelicula.getGenero()}"></h4>
                         <p class="card-text" th:text="${pelicula.getFecha()}"></p>
-                        <a class="btn btn-info" th:href="/search/${pelicula.getNombre()}" role="button">Consultar horarios >></a>
+                        <!-- th:href="${(#mvc.url('INICIALES DEL CONTROLADOR'#'METODO DEL CONTROLADOR').arg(0, 'PARAMETRO').build())}" -->
+                        <a class="btn btn-info" th:href="${(#mvc.url('PC#search').arg(0, pelicula.getNombre()).build())}" role="button">Consultar horarios >></a>
                     </div>
                 </div>
             </div>
